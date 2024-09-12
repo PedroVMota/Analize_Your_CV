@@ -22,7 +22,7 @@ jobs:
       # Replace this with steps to deploy to users
       - run:
           name: deploy
-          command: 'python3 manage.py runserver'
+          command: 'ls -al'
 workflows:
   build-and-test:
     jobs:
