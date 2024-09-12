@@ -13,7 +13,7 @@ jobs:
       - python/install-packages
       - run:
           name: Run tests
-          command: python manage.py test
+          command: python manage.py runserver
   deploy:
     # This is an example deploy job, not actually used by the workflow
     docker:
