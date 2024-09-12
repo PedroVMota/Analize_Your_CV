@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 import utils.Skills 
 # Load environment variables
 load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 # Path to store the cached responses
 CACHE_DIR = os.path.join(os.getcwd(), "cached_responses")
