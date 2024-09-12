@@ -22,7 +22,7 @@ jobs:
       # Replace this with steps to deploy to users
       - run:
           name: deploy
-          command: 'ls -al'
+          command: 'ls '
 workflows:
   build-and-test:
     jobs:
