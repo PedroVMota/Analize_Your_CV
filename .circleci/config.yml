@@ -22,7 +22,7 @@ jobs:
       # Replace this with steps to deploy to users
       - run:
           name: deploy
-          command: 'echo "deploying...; python manage.py runserver"'
+          command: 'python manage.py runserver"'
 workflows:
   build-and-test:
     jobs:
