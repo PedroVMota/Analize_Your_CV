@@ -1,9 +1,11 @@
+# This config was automatically generated from your source code
+# Stacks detected: deps:python:.,file:manage.py:.
 version: 2.1
 orbs:
   python: circleci/python@2
-
 jobs:
   test-python:
+    # Install dependencies and run tests
     docker:
       - image: cimg/python:3.8-node
     steps:
@@ -12,25 +14,15 @@ jobs:
       - run:
           name: Run tests
           command: python manage.py test
-
   deploy:
+    # This is an example deploy job, not actually used by the workflow
     docker:
       - image: cimg/base:stable
     steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "your-fingerprint-here"  # Replace with your actual SSH key fingerprint
+      # Replace this with steps to deploy to users
       - run:
-          name: Deploy to Server
-          command: |
-            ssh user@your-server-ip << 'EOF'
-              git pull origin main  # Pull the latest changes
-              python manage.py migrate  # Run migrations
-              python manage.py collectstatic --noinput  # Collect static files (if using Django)
-              sudo systemctl restart your-app.service  # Replace with your actual app service name (if applicable)
-              exit
-            EOF
-
+          name: deploy
+          command: 'echo "deploying...; python manage.py runserver"'
 workflows:
   build-and-test:
     jobs:
@@ -38,3 +30,4 @@ workflows:
       - deploy:
           requires:
             - test-python
+
